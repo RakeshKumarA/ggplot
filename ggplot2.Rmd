@@ -1,0 +1,31 @@
+## GGPLOT
+
+ggplot works with dataframes and not individual vectors
+
+### Understanding basic Syntax
+
+```{r setup, warning=FALSE, message=FALSE}
+## Loading ggplot2
+library("ggplot2")
+
+## Removing scientific notation
+options(scipen = 999)
+
+data("midwest") ## Load Midwest data
+
+## Init ggplot
+ggplot(midwest, aes(x=area, y=poptotal))
+
+```
+
+### How to Make a Simple Scatterplot
+
+```{r setup, warning=FALSE, message=FALSE}
+## Scatter Plot
+ggplot(midwest, aes(x=area, y=poptotal)) + geom_point()
+
+## geom_smooth 
+g <- ggplot(midwest, aes(x=area, y=poptotal)) + geom_point() + geom_smooth(method="lm")
+plot(g)
+
+```
